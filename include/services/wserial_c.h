@@ -129,6 +129,7 @@ void WSerial_c::println()
 void WSerial_c::onInputReceived(std::function<void(std::string)> callback)
 {
   _telnet->onIncomingData(callback);
+  IncomingDataHandler
   on_input = callback;
 }
 
