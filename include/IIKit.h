@@ -99,7 +99,7 @@ inline void IIKit_c::setup()
         WSerial.print("\nWifi running - IP:");
         WSerial.println(WiFi.localIP());
         disp.setFuncMode(false);
-        disp.setText(1, WiFi.localIP().toString().c_str());
+        disp.setText(1, (WiFi.localIP().toString()+" ID: "+String(idKit)).c_str());
         disp.setText(2, DDNSName);
         disp.setText(3, "UFU Mode");
         delay(50);
