@@ -78,10 +78,10 @@ inline void IIKit_c::setup()
     delay(50);
     /*************** READ EEPROM *************/
     EEPROM.begin(1);
-    char idKit[2] = "2";
+    char idKit[2] = "0";
     /*************** Write EEPROM ************/
-    EEPROM.write(0,(uint8_t) idKit[0]);
-    EEPROM.commit();
+    // EEPROM.write(0,(uint8_t) idKit[0]);
+    // EEPROM.commit();
     /********** Initializes with kit id ******/
     idKit[0] = (char)EEPROM.read(0); // id do kit utilizado
     strcat(DDNSName, idKit);
