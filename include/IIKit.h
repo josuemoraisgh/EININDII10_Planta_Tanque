@@ -5,8 +5,8 @@
 #include <ESPmDNS.h>
 #include <EEPROM.h>
 #include <WiFi.h>
-#include <OTA.h>
 
+#include "services\OTA.h"
 #include "services\WSerial_c.h"
 #include "services\display_c.h"
 #include "services\wifimanager_c.h"
@@ -108,9 +108,9 @@ inline void IIKit_c::setup()
         errorMsg("Wifi  error.\nAP MODE...", false);
 
     /************** Starting OTA *************/
-    OTA::setup(DDNSName);// OTA tem que ser depois do wifi e wifiManager
+    OTA::start(DDNSName);// OTA tem que ser depois do wifi e wifiManager
     /*** Starting Telnet Mode in WSerial ****/
-    startWSerial(&WSerial,4000);
+    startWSerial(&WSerial,400+String(idKit).toInt());
     /********** POTENTIOMETERS GPIO define *****/
     pinMode(def_pin_POT1, ANALOG);
     pinMode(def_pin_POT2, ANALOG);
