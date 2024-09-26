@@ -55,6 +55,7 @@ void setup() {
   IIKit.setup();
 
   pinMode(CHNivel, INPUT_PULLDOWN);
+  pinMode(def_pin_D4, OUTPUT);  
   attachInterrupt(CHNivel, trip_func, CHANGE);
 
   ledcAttachPin(def_pin_W4a20_1, POSValvula); // Atribuimos o pino def_pin_W4a20_1 ao canal POSValvula.
@@ -64,7 +65,7 @@ void setup() {
   IIKit.rtn_1.onValueChanged([](uint8_t status){
       if(!tripValue) {
         digitalWrite(MOTBomba,status);
-        digitalWrite(def_pin_D1,status);
+        digitalWrite(def_pin_D4,status);
         IIKit.WSerial.println(status? "MOTBomba ON" :"MOTBomba OFF"); 
       } 
   });
