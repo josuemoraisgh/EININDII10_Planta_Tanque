@@ -110,7 +110,7 @@ inline void IIKit_c::setup()
     /************** Starting OTA *************/
     OTA::start(DDNSName);// OTA tem que ser depois do wifi e wifiManager
     /*** Starting Telnet Mode in WSerial ****/
-    startWSerial(&WSerial,400+String(idKit[0]).toInt());
+    startWSerial(&WSerial,4000+String(idKit[0]).toInt());
     /********** POTENTIOMETERS GPIO define *****/
     pinMode(def_pin_POT1, ANALOG);
     pinMode(def_pin_POT2, ANALOG);
