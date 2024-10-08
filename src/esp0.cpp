@@ -21,8 +21,8 @@ void monitoraPOT(void) {
 
     IIKit.disp.setText(2, ("P1:" + String(100.0 * vlPOT1 / 4096.0) + "  P2:" + String(100.0 * vlPOT2 / 4096.0)).c_str());
 
-    IIKit.WSerial.plot("vlPOT1", vlPOT1);
-    IIKit.WSerial.plot("vlPOT2", vlPOT2);
+    //IIKit.WSerial.plot("vlPOT1", vlPOT1);
+    //IIKit.WSerial.plot("vlPOT2", vlPOT2);
   }
 }
 
@@ -36,10 +36,12 @@ void monitora4A20(void) {
     const double vlR4a20_1 = 16.0 * analogRead(def_pin_R4a20_1) / 4096.0 + 4.0;
     const double vlR4a20_2 = 16.0 * analogRead(def_pin_R4a20_2) / 4096.0 + 4.0;
 
+    IIKit.WSerial.plot("T2", String(vlR4a20_2).c_str());
+    delay(2000);
     IIKit.disp.setText(3, ("T1:" + String(vlR4a20_1) + "  T2:" + String(vlR4a20_2)).c_str());
 
-    IIKit.WSerial.plot("vlR4a20_1", vlR4a20_1);
-    IIKit.WSerial.plot("vlR4a20_2", vlR4a20_2);
+    //IIKit.WSerial.plot("vlR4a20_1", vlR4a20_1);
+    //IIKit.WSerial.plot("vlR4a20_2", vlR4a20_2);
   }
 }
 
